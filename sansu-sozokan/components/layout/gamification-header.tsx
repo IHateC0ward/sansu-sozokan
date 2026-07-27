@@ -1,0 +1,6 @@
+"use client";
+import Link from "next/link";
+import { Sparkles, Flame, ShieldCheck } from "lucide-react";
+import { useLearningStore } from "@/store/use-learning-store";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
+export function GamificationHeader(){ const {points,level,streak}=useLearningStore(); return <header className="sticky top-0 z-40 border-b border-[var(--line)] bg-[var(--background)]/90 backdrop-blur"><div className="mx-auto flex max-w-7xl items-center gap-3 px-4 py-3"><Link href="/" className="mr-auto flex items-center gap-2 font-black"><span className="grid h-10 w-10 place-items-center rounded-xl bg-violet-600 text-white">算</span><span className="hidden sm:block">算数創造館</span></Link><div className="flex items-center gap-2 rounded-xl border border-[var(--line)] px-3 py-2 text-sm"><Sparkles className="h-4 w-4 text-amber-500"/><b>{points}</b></div><div className="hidden items-center gap-2 rounded-xl border border-[var(--line)] px-3 py-2 text-sm sm:flex"><Flame className="h-4 w-4 text-orange-500"/>{streak}日</div><div className="hidden items-center gap-2 rounded-xl border border-[var(--line)] px-3 py-2 text-sm md:flex"><ShieldCheck className="h-4 w-4 text-cyan-500"/>Lv.{level}</div><ThemeToggle/><div className="grid h-10 w-10 place-items-center rounded-full bg-cyan-300 font-black text-slate-900">Y</div></div></header>; }
